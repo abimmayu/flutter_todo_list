@@ -8,7 +8,6 @@ import 'package:todo_list/feature/login/presentation/bloc/auth/auth_bloc.dart';
 import 'package:todo_list/feature/login/presentation/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -65,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 if (state is AuthSuccess) {
                   context.pushReplacementNamed(AppRoute.checklistScreen.name);
                 }
-                // log("$state");
+                log("$state");
               },
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 10.h),

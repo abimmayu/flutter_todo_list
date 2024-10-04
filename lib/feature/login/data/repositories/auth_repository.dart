@@ -1,15 +1,16 @@
 import 'package:todo_list/core/service/dio.dart';
 import 'package:todo_list/core/utils/constants.dart';
-import '../models/user.dart';
+import 'package:todo_list/feature/login/data/models/register_success.dart';
+import '../models/login_success.dart';
 
 class AuthRepository {
-  Future<User> login(
+  Future<LoginSuccess> login(
     String username,
     String password,
   ) async {
     try {
       final response = await postIt(
-        '${AppConstant.baseUrl}/login',
+        '${AppConstant.baseUrl}login',
         null,
         {
           'username': username,
@@ -17,14 +18,15 @@ class AuthRepository {
         },
       );
 
-      return User.fromJson(response.data);
+      return LoginSuccess.fromJson(response.data);
     } catch (e) {
       // Handle errors
       rethrow;
     }
   }
 
-  Future<User> register(String email, String password, String username) async {
+  Future<RegisterSuccess> register(
+      String email, String password, String username) async {
     try {
       final response = await postIt(
         '${AppConstant.baseUrl}register',
@@ -36,7 +38,7 @@ class AuthRepository {
         },
       );
 
-      return User.fromJson(response.data);
+      return RegisterSuccess.fromJson(response.data);
     } catch (e) {
       // Handle errors
       rethrow;

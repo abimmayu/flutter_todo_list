@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'package:todo_list/feature/checklist/presentation/checklist_detail_screen.dart';
-import 'package:todo_list/feature/checklist/presentation/checklist_screen.dart';
-import 'package:todo_list/feature/checklist/presentation/create_checklist_screen.dart';
-import 'package:todo_list/feature/checklist/presentation/create_item_screen.dart';
-import 'package:todo_list/feature/checklist/presentation/detail_item_screen.dart';
+import 'package:todo_list/feature/checklist/presentation/screen/checklist_detail_screen.dart';
+import 'package:todo_list/feature/checklist/presentation/screen/checklist_screen.dart';
+import 'package:todo_list/feature/checklist/presentation/screen/create_checklist_screen.dart';
+import 'package:todo_list/feature/checklist/presentation/screen/create_item_screen.dart';
+import 'package:todo_list/feature/checklist/presentation/screen/detail_item_screen.dart';
 import 'package:todo_list/feature/login/presentation/screen/login_screen.dart';
 import 'package:todo_list/feature/login/presentation/screen/register_screen.dart';
 

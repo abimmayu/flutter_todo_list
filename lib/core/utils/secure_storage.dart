@@ -14,7 +14,7 @@ class SecureStorage {
   Future<String?> readData({
     required String key,
   }) async {
-    final result = await storage.read(key: key);
+    String? result = await storage.read(key: key);
     return result;
   }
 }
