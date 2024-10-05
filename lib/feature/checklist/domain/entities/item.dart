@@ -1,6 +1,6 @@
 class Item {
   final int id;
-  final int name;
+  final String name;
   final bool itemCompletionStatus;
 
   Item({

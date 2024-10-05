@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:todo_list/core/utils/secure_headers.dart';
-import 'package:todo_list/core/utils/secure_storage.dart';
 
 Dio dio = Dio();
 

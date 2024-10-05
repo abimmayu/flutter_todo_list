@@ -3,26 +3,52 @@ import 'package:todo_list/feature/checklist/data/models/new_checklist.dart';
 import 'package:todo_list/feature/checklist/data/models/search_item.dart';
 
 class SendDataRepository {
-  Future<SearchItem> sendItem(int id, Map<String, dynamic> body) async {
+  Future<NewChecklistSuccess> sendChecklist(
+    String name,
+  ) async {
     try {
-      final response =
-          await postIt('{AppConstant.baseUrl}checklist/$id/item', null, body);
-
-      return SearchItem.fromJson(response.data);
+      final response = await postIt(
+        '{AppConstant.baseUrl}checklist',
+        null,
+        {
+          "name": name,
+        },
+      );
+      return NewChecklistSuccess.fromJson(response.data);
     } catch (e) {
       // Handle errors
       rethrow;
     }
   }
 
-  Future<NewChecklistSuccess> sendChecklist(Map<String, dynamic> body) async {
+  Future<bool> deleteChecklist(int checklistId) async {
+    try {
+      final response = await deleteIt(
+        '{AppConstant.baseUrl}checklist/$checklistId',
+        null,
+        {},
+      );
+      return response.data;
+    } catch (e) {
+      // Handle errors
+      rethrow;
+    }
+  }
+
+  Future<SearchItem> sendItem(
+    int id,
+    String itemName,
+  ) async {
     try {
       final response = await postIt(
-        '{AppConstant.baseUrl}checklist',
+        '{AppConstant.baseUrl}checklist/$id/item',
         null,
-        body,
+        {
+          "itemName": itemName,
+        },
       );
-      return NewChecklistSuccess.fromJson(response.data);
+
+      return SearchItem.fromJson(response.data);
     } catch (e) {
       // Handle errors
       rethrow;
@@ -44,12 +70,14 @@ class SendDataRepository {
   }
 
   Future<SearchItem> updateItem(
-      int checklistId, int itemId, Map<String, dynamic> body) async {
+    int checklistId,
+    int itemId,
+  ) async {
     try {
       final response = await putIt(
         '{AppConstant.baseUrl}checklist/$checklistId/item/$itemId',
         null,
-        body,
+        {},
       );
       return SearchItem.fromJson(response.data);
     } catch (e) {
@@ -59,12 +87,14 @@ class SendDataRepository {
   }
 
   Future<SearchItem> renameItem(
-      int checklistId, Map<String, dynamic> body, int itemId) async {
+      int checklistId, String itemName, int itemId) async {
     try {
       final response = await putIt(
         '{AppConstant.baseUrl}checklist/$checklistId/item/rename/$itemId',
         null,
-        body,
+        {
+          "itemName": itemName,
+        },
       );
       return SearchItem.fromJson(response.data);
     } catch (e) {

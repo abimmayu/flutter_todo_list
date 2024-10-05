@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CreateChecklistScreen extends StatefulWidget {
   const CreateChecklistScreen({super.key});

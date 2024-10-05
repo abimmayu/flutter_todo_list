@@ -11,18 +11,18 @@ class GetChecklist extends ChecklistEvent {
 }
 
 class AddChecklist extends ChecklistEvent {
-  final Checklist checklist;
-  AddChecklist(this.checklist);
+  final String name;
+  AddChecklist(this.name);
 
   @override
-  List<Object> get props => [checklist];
+  List<Object> get props => [name];
 }
 
 class DeleteChecklist extends ChecklistEvent {
-  final String status;
+  final int id;
 
-  DeleteChecklist(this.status);
+  DeleteChecklist(this.id);
 
   @override
-  List<Object> get props => [status];
+  List<Object> get props => [id];
 }

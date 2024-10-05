@@ -1,5 +1,4 @@
 import 'package:todo_list/feature/checklist/domain/entities/checklist.dart';
-import 'package:todo_list/feature/checklist/domain/entities/item.dart';
 
 class NewChecklistSuccess {
   final int statusCode;
